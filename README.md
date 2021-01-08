@@ -36,6 +36,6 @@ where * represents some variable filename for each cartoon.
 
 This script fetches index.html files by incrementing [i] in a loop and detecting the URL in the html files pointing to the cartoon image (jpg or png file). The loop increments indefinitely until it fails to find an index.html file for some [i]. The images are stored in a specified directory or by default in ~/Downloads/xkcd_imgs/ 
 
-Usage: ./scrap_xkcd.sh	path_to_directory
-
-	if unspecified, path_to_directory will be default: ~/Downloads/xkcd_imgs/
+Usage: ./scrap_xkcd.sh	path_to_directory <br>
+       if unspecified, path_to_directory will be default: ~/Downloads/xkcd_imgs/
+	
