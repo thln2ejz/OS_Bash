@@ -24,7 +24,7 @@ The cartoon image files can be downloaded one at a time by visiting all  consecu
 
 https://imgs.xkcd.com/comics/  ->  #403 Forbidden
 
-With no permission to access the directory, its image files can still be downloaded with wget if their filenames are known; so these filenames  would first need to be detected, ie scraped from index.html files. 
+With no permission to access the directory, its image files can still be downloaded with wget if their filenames are known; so these filenames would first need to be detected, i.e. scraped from index.html files. 
 
 The cartoon images are located at: 
 
