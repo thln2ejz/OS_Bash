@@ -67,16 +67,18 @@ After experimentation, below is a summary for (safely) removing unwanted apps:
 (4) Developer options (turn ON) -> USB debugging (turn ON). <br>
 (5) Install android debug bridge (adb) on your computer and run <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> script (assuming Linux CLI); <br>
 
+#install adb
 sudo apt update <br>
 sudo apt install android-tools-adb <br> 
 
+#check device detection and list all packages (switch -f is for also showing associated apk files)
 adb devices <br>
 adb shell pm list packages <br>
 adb shell pm list packages -f  
 
 Packages typically include bloatware from google, facebook, huawei, gameloft, netflix, etc., not to mention a potential keylogger (Microsoft's Swiftkey) which is the default 'keyboard'. This isn't surprising given the following default setting on Windows 10 desktops: "Send Microsoft info about how I write to help us improve typing and writing in the future".   
 
-Examples of built-in packages: 
+#Example: list current facebook packages: 
 
 adb shell pm list packages | grep facebook <br>
 	
@@ -100,16 +102,17 @@ adb install ./rkr.simplekeyboard.inputmethod_76.apk  <br>
 adb shell pm uninstall --user 0 com.swiftkey.swiftkeyconfigurator <br>
 adb shell pm uninstall --user 0 com.touchtype.swiftkey	<br>
 
+You may turn off automatic system update through Developer options -> Automatic system updates (off).
+
+### Alternative apps 
 Possible FOSS replacements for essential apps (simply install these either from your command line interface, or on your phone by downloading/transfering apk files and tapping on them):
 
 * Simple lightweight apps for Dialer, Music-Player, Notes, File-Manager, Gallery, Flashflight, Clock, Voice-Recorder, Calculator, and Contacts can be obtained from https://github.com/SimpleMobileTools.  
  
 The Contacts app in particular includes the ability to store contacts within the app without communicating with any other app, eg Telegram. The names of your contacts on Telegram will appear as specified by your contacts (and not as set by yourself in your phone's own contact list!). Note: SMS-Messenger, Camera, and Calendar apps from the above source are buggy and still under development.
 
-* Other useful apps: <a href="https://f-droid.org/en/packages/com.fsck.k9/">K-9 Mail client*</a>, <a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a> (replaces Adobe), <a href="https://f-droid.org/en/packages/com.termux/">Termux (terminal emulator)</a>, Firefox beta: unlike beta, the stable android version does not allow about:config (cannot enable/disable java etc.) <br>
+* Other useful apps: <a href="https://f-droid.org/en/packages/com.fsck.k9/">K-9 Mail client</a>, <a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a> (replaces Adobe), <a href="https://f-droid.org/en/packages/com.termux/">Termux (terminal emulator)</a>, Firefox beta (unlike beta, the stable android version does not allow about:config ie one cannot enable/disable java or make configurations) <br>
 
-\*K-9 Mail is a bit buggy over pop3 at least with a Yandex account (it crashes upon opening emails), but notification works well and allows setting a 6-line preview. Other app choices exist on F-Droid, Github, direct apk download, etc.; check project source code before downloading/installing an app or at least that it is visibile and supported by a large active community (> 5 developers).
+Other app choices exist on F-Droid, Github, direct apk download, etc.; check project source code before downloading/installing an app or at least that it is visibile and supported by a large active community of developers.
 
-You may turn off automatic system update through Developer options -> Automatic system updates (off).
-
-**Unresolved issues**: default voice call volume in Huawei cannot be muted, only lowered to some minimum level. Also, Huawei's Settings -> Sound allows volume control for Ringtone, Media, and Alarms, but not for Calls! Installing 3rd party apps will not override this (as soon as you leave the muted setting, it immediately reverts back to minimum level).
+**Unresolved issue**: default voice call volume in Huawei cannot be muted, only lowered to some minimum level. Also, Huawei's Settings -> Sound allows volume control for Ringtone, Media, and Alarms, but not for Calls! Installing 3rd party apps will not override this (as soon as you leave the muted setting, it immediately reverts back to minimum level).
