@@ -52,7 +52,7 @@ Commercial android phones are shipped with a few hundred (system and 3rd party) 
 
 Optimal solution: select a phone which supports rooting and installing a custom ROM of your choice. 
 
-Ubports' Ubuntu Touch has no connection to Google and bloatware and could be an ideal choice. Unfortunately only few devices are supported (although the list is growing). LineageOS is a second favorite, but for what concerns Huawei devices it only supports P20 Lite, Honor View 10, P20 Pro, P Smart, and Honor 5X. 
+Ubports' Ubuntu Touch has no connection to Google and bloatware and could be an ideal choice. Unfortunately only few devices are supported (although the list is growing). LineageOS is a second favorite, but for what concerns Huawei devices it is only compatible with P20 Lite, Honor View 10, P20 Pro, P Smart, and Honor 5X. 
 
 For the particular device specified above, not many options are possible: one cannot unlock the bootloader, and therefore cannot root the device nor install custom ROM. Modern Huawei phones do not allow unlocking the bootloader; moreover, even if you could unlock the bootloader through an exploit, it would be impossible to replace stock android on this particular model as no open source custom ROM is compatible (including Ubuntu Touch, LineageOS, and others). Even if you just want to root android systemless-ly with <a href="https://github.com/topjohnwu/Magisk">Magisk</a> (using stock ROM), Huawei's site simply does not provide a boot.img file that you can flash with fastboot onto this device! Additionally, Magisk will not work on Huawei devices as these use a different partition setup than most normal Android devices. 
 
