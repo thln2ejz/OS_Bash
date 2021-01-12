@@ -14,43 +14,43 @@ adb shell pm uninstall --user 0 com.google.android.gm                     #Gmail
 adb shell pm uninstall --user 0 com.google.android.apps.tachyon           #Google Duo
 adb shell pm uninstall --user 0 com.google.android.setupwizard
 adb shell pm uninstall --user 0 com.google.android.music
-adb shell pm uninstall --user 0 com.google.android.apps.docs				           #Google Drive
-adb shell pm uninstall --user 0 com.google.android.apps.maps				           #Google Maps
+adb shell pm uninstall --user 0 com.google.android.apps.docs              #Google Drive
+adb shell pm uninstall --user 0 com.google.android.apps.maps              #Google Maps
 adb shell pm uninstall --user 0 com.google.android.webview
 adb shell pm uninstall --user 0 com.google.android.syncadapters.contacts
 adb shell pm uninstall --user 0 com.google.android.backuptransport
 adb shell pm uninstall --user 0 com.google.android.gsf
 adb shell pm uninstall --user 0 com.google.android.tts
 adb shell pm uninstall --user 0 com.google.android.partnersetup
-adb shell pm uninstall --user 0 com.google.android.videos			                	#Google play movies
-adb shell pm uninstall --user 0 com.google.android.feedback			              	#Google feedback	
-adb shell pm uninstall --user 0 com.google.android.printservice.recommendation	#mobile printing service
-adb shell pm uninstall --user 0 com.google.android.apps.photos			        		#Google Photos
-adb shell pm uninstall --user 0 com.google.android.syncadapters.calendar		    #calendar sync
+adb shell pm uninstall --user 0 com.google.android.videos                 #Google play movies
+adb shell pm uninstall --user 0 com.google.android.feedback               #Google feedback	
+adb shell pm uninstall --user 0 com.google.android.printservice.recommendation  #mobile printing service
+adb shell pm uninstall --user 0 com.google.android.apps.photos                  #Google Photos
+adb shell pm uninstall --user 0 com.google.android.syncadapters.calendar        #calendar sync
 
 #Huawei built-in
-adb shell pm uninstall --user 0 com.huawei.hifolder						      #cloud folder service
+adb shell pm uninstall --user 0 com.huawei.hifolder                 #cloud folder service
 adb shell pm uninstall --user 0 com.huawei.novalivingwallpaper
-adb shell pm uninstall --user 0 com.huawei.android.tips				      #Huawei tips
+adb shell pm uninstall --user 0 com.huawei.android.tips             #Huawei tips
 adb shell pm uninstall --user 0 com.huawei.synergy
 adb shell pm uninstall --user 0 com.huawei.health
 adb shell pm uninstall --user 0 com.huawei.hidisk
 adb shell pm uninstall --user 0 com.huawei.hiview
 adb shell pm uninstall --user 0 com.huawei.iaware						
 adb shell pm uninstall --user 0 com.huawei.android.thememanager
-adb shell pm uninstall --user 0 com.huawei.android.chr					    #HwChrService
-adb shell pm uninstall --user 0 com.huawei.android.hsf					    #hHuawei services framework
+adb shell pm uninstall --user 0 com.huawei.android.chr              #HwChrService
+adb shell pm uninstall --user 0 com.huawei.android.hsf              #hHuawei services framework
 adb shell pm uninstall --user 0 com.huawei.oceanlivingwallpaper
 adb shell pm uninstall --user 0 com.huawei.nearby
-adb shell pm uninstall --user 0 com.huawei.android.FloatTasks			  #floating dock	
+adb shell pm uninstall --user 0 com.huawei.android.FloatTasks       #floating dock	
 adb shell pm uninstall --user 0 com.huawei.motionservice
-adb shell pm uninstall --user 0 com.huawei.appmarket					      #Huawei market app
+adb shell pm uninstall --user 0 com.huawei.appmarket                #Huawei market app
 adb shell pm uninstall --user 0 com.huawei.recsys
-adb shell pm uninstall --user 0 com.huawei.android.totemweather			#huawei weather 
-adb shell pm uninstall --user 0 com.huawei.gameassistant			    	#HiGame suite
+adb shell pm uninstall --user 0 com.huawei.android.totemweather     #Huawei weather 
+adb shell pm uninstall --user 0 com.huawei.gameassistant            #HiGame suite
 adb shell pm uninstall --user 0 com.huawei.phoneservice					
 adb shell pm uninstall --user 0 com.huawei.screenrecorder
-adb shell pm uninstall --user 0 com.huawei.himovie.overseas				  #videos app
+adb shell pm uninstall --user 0 com.huawei.himovie.overseas         #videos app
 adb shell pm uninstall --user 0 com.huawei.videoeditor
 adb shell pm uninstall --user 0 com.huawei.iconnect
 adb shell pm uninstall --user 0 com.huawei.KoBackup
@@ -66,12 +66,12 @@ adb shell pm uninstall --user 0 com.huawei.trustagent
 adb shell pm uninstall --user 0 com.huawei.indexsearch
 adb shell pm uninstall --user 0 com.huawei.systemmanager
 adb shell pm uninstall --user 0 com.huawei.HwMultiScreenShot
-adb shell pm uninstall --user 0 com.huawei.vassistant					    #voice assistant
+adb shell pm uninstall --user 0 com.huawei.vassistant             #voice assistant
 adb shell pm uninstall --user 0 com.huawei.watch.sync                   
 adb shell pm uninstall --user 0 com.huawei.hwstartupguide
-adb shell pm uninstall --user 0 com.huawei.fido.uafclient				  #fast id online					
+adb shell pm uninstall --user 0 com.huawei.fido.uafclient         #fast id online					
 adb shell pm uninstall --user 0 com.huawei.android.mirrorshare
-adb shell pm uninstall --user 0 com.huawei.contactscamcard				#business card reader
+adb shell pm uninstall --user 0 com.huawei.contactscamcard        #business card reader
 adb shell pm uninstall --user 0 com.huawei.android.totemweatherwidget
 adb shell pm uninstall --user 0 com.huawei.compass
 adb shell pm uninstall --user 0 com.huawei.android.wfdft
@@ -81,26 +81,26 @@ adb shell pm uninstall --user 0 com.huawei.android.projectmenu
 adb shell pm uninstall --user 0 com.huawei.android.totemweatherapp
 adb shell pm uninstall --user 0 com.huawei.android.pushagent
 adb shell pm uninstall --user 0 com.huawei.scanner
-adb shell pm uninstall --user 0 com.huawei.hwdetectrepair				  #smart diagnosis app
+adb shell pm uninstall --user 0 com.huawei.hwdetectrepair         #smart diagnosis app
 adb shell pm uninstall --user 0 com.huawei.lbs
 adb shell pm uninstall --user 0 com.huawei.rcsserviceapplication
 
 #android built-in
 adb shell pm uninstall --user 0 com.android.wallpapercropper
 adb shell pm uninstall --user 0 com.android.partnerbrowsercustomizations.tmobile
-adb shell pm uninstall --user 0 com.android.vending						  #Google play store
-adb shell pm uninstall --user 0 com.android.egg							    #android's easter egg feature
-adb shell pm uninstall --user 0 com.android.dreams.basic				#screensaver mode
-adb shell pm uninstall --user 0 com.android.bips					    	#print service
+adb shell pm uninstall --user 0 com.android.vending             #Google play store
+adb shell pm uninstall --user 0 com.android.egg                 #android's easter egg feature
+adb shell pm uninstall --user 0 com.android.dreams.basic        #screensaver mode
+adb shell pm uninstall --user 0 com.android.bips                #print service
 adb shell pm uninstall --user 0 com.android.managedprovisioning
-adb shell pm uninstall --user 0 com.android.dreams.phototable			#photo screensaver
+adb shell pm uninstall --user 0 com.android.dreams.phototable   #photo screensaver
 adb shell pm uninstall --user 0 com.android.wallpaper.livepicker
-adb shell pm uninstall --user 0 com.android.bookmarkprovider			#chrome boomark service
-adb shell pm uninstall --user 0 com.android.vpndialogs				  	#VPN
+adb shell pm uninstall --user 0 com.android.bookmarkprovider    #chrome boomark service
+adb shell pm uninstall --user 0 com.android.vpndialogs          #VPN
 adb shell pm uninstall --user 0 com.android.wallpaperbackup
-adb shell pm uninstall --user 0 com.android.emergency					#emergency contacts
-adb shell pm uninstall --user 0 com.android.email						  #default (stock) email app 	
-adb shell pm uninstall --user 0 com.android.gallery3d					#Gallery
+adb shell pm uninstall --user 0 com.android.emergency           #emergency contacts
+adb shell pm uninstall --user 0 com.android.email               #default (stock) email app 	
+adb shell pm uninstall --user 0 com.android.gallery3d           #Gallery
 
 #3rd-party apps
 #facebook
@@ -123,9 +123,9 @@ adb shell pm uninstall --user 0 com.netflix.partner.activation
 adb shell pm uninstall --user 0 com.netflix.mediaclient
 adb shell pm uninstall --user 0 com.stupeflix.replay
 adb shell pm uninstall --user 0 com.hicloud.android.clone			
-adb shell pm uninstall --user 0 com.example.android.notepad				#notepad	
+adb shell pm uninstall --user 0 com.example.android.notepad       #notepad	
 adb shell pm uninstall --user 0 com.qeexo.smartshot
 adb shell pm uninstall --user 0 com.igg.android.lordsmobile
 adb shell pm uninstall --user 0 com.playwing.acu.huawei
-adb shell pm uninstall --user 0 com.booking							          #Booking.com
+adb shell pm uninstall --user 0 com.booking                       #Booking.com
 adb shell pm uninstall --user 0 com.jb.zcamera
