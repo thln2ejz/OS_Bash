@@ -66,12 +66,12 @@ After experimentation, below is a summary for (safely) removing unwanted apps:
 (2) Connect phone by usb cable and allow file trasfer. <br>
 (3) Settings -> System -> About phone -> tap 7 times on 'Build number' (to enable Developer options). <br>
 (4) Developer options (turn ON) -> USB debugging (turn ON). <br>
-(5) Install android debug bridge (adb) on your computer 
+(5) Install android debug bridge (adb) on your computer (assuming Linux CLI):
 
 sudo apt update <br>
 sudo apt install android-tools-adb <br> 
 
-(6) Run <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> script (assuming Linux CLI); <br>
+(6) Run <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> script <br>
 
 #useful check: device detection and list all packages (switch -f is for also showing associated apk files) <br> 
 adb devices <br>
