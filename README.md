@@ -41,7 +41,7 @@ Usage: ./scrape_xkcd.sh	path_to_directory <br>
 	
 ## Android Cleanup
 
-### Device specifications:
+**Device specifications**:		<br>
 Device name: HUAWEI nova 2 Plus		<br>
 Model: BAC-L21				<br>
 Android version: 8.0.0			<br>
@@ -58,6 +58,7 @@ For the particular device specified above, not many options are possible: one ca
 
 The option left is to manually clean up the android system from bloatware (to the extent possible) and replace these with open source apps; this is still far better than doing nothing; note: you do **not** need to root your device in order to do this.  
   
+**Cleanup**: <br>
 After experimentation, below is a summary for (safely) removing unwanted apps:  
 
 (0) Backup any important files (eg music) onto your computer. <br>
@@ -104,7 +105,7 @@ adb shell pm uninstall --user 0 com.touchtype.swiftkey	<br>
 
 You may turn off automatic system update through Developer options -> Automatic system updates (off).
 
-### Alternative apps 
+**Alternative apps**: <br>
 Possible FOSS replacements for essential apps (simply install these either from your command line interface, or on your phone by downloading/transfering apk files and tapping on them):
 
 * Simple lightweight apps for Dialer, Music-Player, Notes, File-Manager, Gallery, Flashflight, Clock, Voice-Recorder, Calculator, and Contacts can be obtained from https://github.com/SimpleMobileTools.  
