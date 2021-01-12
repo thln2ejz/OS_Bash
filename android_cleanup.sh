@@ -1,17 +1,17 @@
 #!/bin/bash
 adb shell pm uninstall --user 0 com.google.android.youtube
 adb shell pm uninstall --user 0 com.google.android.ext.services
-adb shell pm uninstall --user 0 com.google.android.googlequicksearchbox		     #Google search	
+adb shell pm uninstall --user 0 com.google.android.googlequicksearchbox   #Google search	
 adb shell pm uninstall --user 0 com.google.android.apps.docs.editors.docs	
 adb shell pm uninstall --user 0 com.google.android.onetimeinitializer
 adb shell pm uninstall --user 0 com.google.android.ext.shared
 adb shell pm uninstall --user 0 com.google.android.apps.docs.editors.sheets
 adb shell pm uninstall --user 0 com.google.android.apps.docs.editors.slides
 adb shell pm uninstall --user 0 com.google.android.configupdater
-adb shell pm uninstall --user 0 com.google.android.marvin.talkback		         #Talkback
+adb shell pm uninstall --user 0 com.google.android.marvin.talkback        #Talkback
 adb shell pm uninstall --user 0 com.google.android.apps.work.oobconfig
-adb shell pm uninstall --user 0 com.google.android.gm						               #Gmail
-adb shell pm uninstall --user 0 com.google.android.apps.tachyon				         #Google Duo
+adb shell pm uninstall --user 0 com.google.android.gm                     #Gmail
+adb shell pm uninstall --user 0 com.google.android.apps.tachyon           #Google Duo
 adb shell pm uninstall --user 0 com.google.android.setupwizard
 adb shell pm uninstall --user 0 com.google.android.music
 adb shell pm uninstall --user 0 com.google.android.apps.docs				           #Google Drive
