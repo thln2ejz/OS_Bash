@@ -104,7 +104,7 @@ Possible FOSS replacements for essential apps (simply install these either from 
  
 The Contacts app in particular includes the ability to store contacts within the app without communicating with any other app, eg Telegram. The names of your contacts on Telegram will appear as specified by your contacts (and not as set by yourself in your phone's own contact list!). Note: SMS-Messenger, Camera, and Calendar apps from the above source are buggy and still under development.
 
-* Other useful apps: <a href="https://f-droid.org/en/packages/com.fsck.k9/">K-9 Mail client</a>, <a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a> (replaces Adobe), <a href="https://f-droid.org/en/packages/com.termux/">Termux (terminal emulator)</a>, Firefox beta (unlike beta, the stable android version does not allow about:config ie one cannot enable/disable java or make configurations) <br>
+* Other useful apps: <a href="https://f-droid.org/en/packages/com.fsck.k9/">K-9 Mail client</a>, <a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a> (replaces Adobe Reader), <a href="https://f-droid.org/en/packages/com.termux/">Termux (terminal emulator)</a>, Firefox beta (unlike beta, the stable android version does not allow about:config ie one cannot enable/disable java or make configurations) <br>
 
 Other app choices exist on F-Droid, Github, direct apk download, etc.; check project source code before downloading/installing an app or at least that it is visibile and supported by a large active community of developers.
 
