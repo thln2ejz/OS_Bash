@@ -79,8 +79,7 @@ Packages typically include bloatware from google, facebook, huawei, gameloft, ne
 
 Examples of built-in packages/apps: 
 
-adb shell pm list packages | grep google #check installed google packages <br>
-adb shell pm list packages | grep facebook #eg: facebook packages include these below: <br>
+adb shell pm list packages | grep facebook <br>
 	
 #com.facebook.services	<br>
 #com.facebook.katana	<br>
@@ -88,26 +87,9 @@ adb shell pm list packages | grep facebook #eg: facebook packages include these 
 #com.facebook.system	<br>
 #com.facebook.appmanager <br>
 
-adb shell pm list packages | grep gameloft   
-
-#com.gameloft.android.GloftANPH	<br>
-#com.gameloft.android.GloftDBMF	<br>
-#com.gameloft.android.GloftDMKF	<br>
-#com.gameloft.android.GloftPDMF	<br>
-#com.gameloft.android.GloftSMIF	<br>
-#com.gameloft.android.GloftSOMP	<br>
-
 From experimentation, here is a list of pre-installed packages that can be safely removed (you can view and run this script as alternative to the below detailed steps): <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a>
 
-**Details**: 
-
-Remove all packages from google, huawei, facebook, gameloft, netflix, etc., but avoid system packages which can break your device (ie cause a factory reset). Note: it's likely that some of the exceptions below (listed after grep -Ev) can also be removed safely.   
-
-#list packages to be removed and save package names temporarily in ~/tmp/
-
-adb shell pm list packages | grep -E 'google|facebook|gameloft|wego|booking|netflix|zcamera|qeexo|igg|example|hicloud|stupeflix|daoke|playwing|simalliance|huawei' | grep -Ev 'packageinstaller|.gms|wifi|bluetooth|.camera|firstbootinfo|launcher|.autoinstall|securitymgr|systemserver|internal.app|hwasm|omacp|systemanager|hwaps|hwouc|mmitest|ims|dsdscardmanager' > ~/tmp/files_rm
-
-Notice that when removing google packages, 2 exceptions were made for:
+The list includes packages from google, huawei, facebook, gameloft, netflix, etc., but avoids system packages which can break your device (ie cause a factory reset). Notice that when removing google packages, 2 exceptions were made for:
 
 #com.google.android.gms			<br>
 #com.google.android.packageinstaller	<br>  	
@@ -115,51 +97,28 @@ Notice that when removing google packages, 2 exceptions were made for:
 The first one cannot be removed anyway -> Failure [DELETE_FAILED_DEVICE_POLICY_MANAGER] 		<br>
 The second will (if removed) force your phone upon reboot to enter recovery mode for a factory reset.	<br>  
 
-sed -i 's/package:/adb shell pm uninstall --user 0 /' ~/tmp/files_rm  <br>
-sed -i '1 i #!/bin/bash' ~/tmp/files_rm				      <br>			
-cat ~/tmp/files_rm						      <br>
-cd ~/tmp/; chmod 700 files_rm					      <br>
-./files_rm							      <br>
+Android packages that can be safely removed include chrome, email, vending, etc. 
 
-Android packages that can be safely removed (such as chrome, email, vending, etc.) : 
-
-adb shell pm list packages | grep -E '.bips|.dreams|.egg|.email|.chrome|.emergency|.managedprovisioning|.bookmarkprovider|.vending|.vpndialogs|.wallpaper|callogbackup|tmobile|gallery3d' > ~/tmp/files_rm_android
-
-sed -i 's/package:/adb shell pm uninstall --user 0 /' ~/tmp/files_rm_android <br>
-sed -i '1 i #!/bin/bash' ~/tmp/files_rm_android <br>
-cat ~/tmp/files_rm_android <br>
-cd ~/tmp/; chmod 700 files_rm_android <br>
-./files_rm_android <br>
-
-adb shell pm list packages #list remaining packages
-
-Finally, remove Microsoft's swiftkey, but first install an open source alternative (eg <a href="https://f-droid.org/en/packages/rkr.simplekeyboard.inputmethod/">Simple Keyboard</a>):
+After running android_cleanup.sh, remove Microsoft's swiftkey, but first install an open source alternative (eg <a href="https://f-droid.org/en/packages/rkr.simplekeyboard.inputmethod/">Simple Keyboard</a>):
 
 adb install ./rkr.simplekeyboard.inputmethod_76.apk  <br>
 adb shell pm uninstall --user 0 com.swiftkey.swiftkeyconfigurator <br>
 adb shell pm uninstall --user 0 com.touchtype.swiftkey	<br>
 
-Possible FOSS replacements for essential apps (simply install these either from your linux command line interface): 
+Possible FOSS replacements for essential apps (simply install these either from your linux command line interface, or on your phone by downloading/transfering apk files):
 
-adb shell pm install package_name.apk           
-
-or just download/transfer the apk file of the package you want (from GitHub or F-Droid) to your phone (eg Download folder) and then install by tapping on the file (android's packageinstaller will take care of the rest).
-
-Examples: Simple lightweight apps for Dialer, Music-Player, Notes, File-Manager, Gallery, Flashflight, Clock, Voice-Recorder, Calculator, and Contacts can be obtained from https://github.com/SimpleMobileTools.  
+Simple lightweight apps for Dialer, Music-Player, Notes, File-Manager, Gallery, Flashflight, Clock, Voice-Recorder, Calculator, and Contacts can be obtained from https://github.com/SimpleMobileTools.  
  
-Contacts app in particular includes the ability to store contacts within the app without communicating with any other app, eg Telegram. The names of your contacts on Telegram will appear as specified by your contacts (and not as set by yourself in your phone's own contact list!). Note: SMS-Messenger, Camera, and Calendar apps from the above source are buggy and still under development.
+The Contacts app in particular includes the ability to store contacts within the app without communicating with any other app, eg Telegram. The names of your contacts on Telegram will appear as specified by your contacts (and not as set by yourself in your phone's own contact list!). Note: SMS-Messenger, Camera, and Calendar apps from the above source are buggy and still under development.
 
 Additional basic apps:
 
 <a href="https://f-droid.org/en/packages/com.fsck.k9/">K-9 Mail client*</a><br>
 <a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a> (replaces Adobe)<br>
 <a href="https://f-droid.org/en/packages/com.termux/">Termux (terminal emulator)</a><br>
-<a href="https://telegram.org/">Telegram for Android</a> (Download APK File)<br>
-Firefox beta ... yes beta! because stable android version does not allow about:config (cannot enable/disable java etc.) <br>
+Firefox beta: unlike beta, the stable android version does not allow about:config (cannot enable/disable java etc.) <br>
 
-\*K-9 Mail is a bit buggy over pop3 at least with a Yandex account (it crashes upon opening emails), but notification works well and allows setting a 6-line preview.  
-
-Other app choices exist on F-Droid, Github, direct apk download, etc.; check project source code before downloading/installing an app or at least that it is visibile with a large active community behind it (> 5 developers).
+\*K-9 Mail is a bit buggy over pop3 at least with a Yandex account (it crashes upon opening emails), but notification works well and allows setting a 6-line preview. Other app choices exist on F-Droid, Github, direct apk download, etc.; check project source code before downloading/installing an app or at least that it is visibile with a large active community behind it (> 5 developers).
 
 With fewer apps and background processes, the battery will now last significantly longer. <br>
 You can turnoff automatic system update through Developer options -> Automatic system updates (turn off).
