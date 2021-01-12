@@ -75,7 +75,7 @@ adb devices #check that device is detected (make sure phone is connected by usb 
 adb shell pm list packages #list all package names currently installed on your device (~couple hundreds) <br>
 adb shell pm list packages -f #option -f shows, in addition, the associated apk files 
 
-Packages typically include bloatware from google, facebook, huawei, gameloft, netflix, etc., not to mention a potential keylogger courtesy of Microsoft called Swiftkey (which is the default 'keyboard'). This isn't very surprising given the following default setting on Windows 10 desktops: "Send Microsoft info about how I write to help us improve typing and writing in the future".   
+Packages typically include bloatware from google, facebook, huawei, gameloft, netflix, etc., not to mention a potential keylogger (Microsoft's Swiftkey) which is the default 'keyboard'. This isn't very surprising given the following default setting on Windows 10 desktops: "Send Microsoft info about how I write to help us improve typing and writing in the future".   
 
 Examples of built-in packages/apps: 
 
@@ -99,7 +99,7 @@ adb shell pm list packages | grep gameloft
 
 From experimentation, here is a list of pre-installed packages that can be safely removed (you can view and run this script as alternative to the below detailed steps): <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a>
 
-Detailed explanation: 
+**Details**: 
 
 Remove all packages from google, huawei, facebook, gameloft, netflix, etc., but avoid system packages which can break your device (ie cause a factory reset). Note: it's likely that some of the exceptions below (listed after grep -Ev) can also be removed safely.   
 
@@ -115,11 +115,11 @@ Notice that when removing google packages, 2 exceptions were made for:
 The first one cannot be removed anyway -> Failure [DELETE_FAILED_DEVICE_POLICY_MANAGER] 		<br>
 The second will (if removed) force your phone upon reboot to enter recovery mode for a factory reset.	<br>  
 
-sed -i 's/package:/adb shell pm uninstall --user 0 /' ~/tmp/files_rm	#fix proper command for uninstalling packages <br>
-sed -i '1 i #!/bin/bash' ~/tmp/files_rm					#add a she-bang first line to execute as bash script <br>			
-cat ~/tmp/files_rm							#check that all is fine <br>
-cd ~/tmp/; chmod 700 files_rm						#allow user owner permission (incl. execution) <br>
-./files_rm								#run script <br>
+sed -i 's/package:/adb shell pm uninstall --user 0 /' ~/tmp/files_rm  <br>
+sed -i '1 i #!/bin/bash' ~/tmp/files_rm				      <br>			
+cat ~/tmp/files_rm						      <br>
+cd ~/tmp/; chmod 700 files_rm					      <br>
+./files_rm							      <br>
 
 More android packages that can be safely removed (such as chrome, email, vending, etc.): 
 
@@ -135,9 +135,9 @@ adb shell pm list packages #list remaining packages
 
 Finally, remove Microsoft's swiftkey, but first install an open source alternative (eg <a href="https://f-droid.org/en/packages/rkr.simplekeyboard.inputmethod/">Simple Keyboard</a>):
 
-adb install ./rkr.simplekeyboard.inputmethod_76.apk #install replacement for keyboard <br>
-adb shell pm uninstall --user 0 com.swiftkey.swiftkeyconfigurator #uninstall swiftkey configurator first before executing next line <br>
-adb shell pm uninstall --user 0 com.touchtype.swiftkey	#remove Microsoft's keylogger (swiftkey) <br>
+adb install ./rkr.simplekeyboard.inputmethod_76.apk  <br>
+adb shell pm uninstall --user 0 com.swiftkey.swiftkeyconfigurator <br>
+adb shell pm uninstall --user 0 com.touchtype.swiftkey	<br>
 
 Possible FOSS replacements for essential apps (best way to install these is either from your linux command line interface): 
 
@@ -145,7 +145,7 @@ adb shell pm install package_name.apk
 
 or just download or transfer the apk file of the package you want (from Github or F-Droid) to your phone (eg Download folder) and then install by tapping on the file (android's packageinstaller will take care of the rest).
 
-Simple-Contacts: includes ability to store contacts within app only! ie does not communicate with other apps, eg Telegram. The names of your contacts on Telegram will appear as specified by your contacts (and not as set by yourself in your phone's own contact list!). <br>  
+Simple-Contacts: includes ability to store contacts within app only! ie does not communicate with other apps, eg Telegram. The names of your contacts on Telegram will appear as specified by your contacts (and not as set by yourself in your phone's own contact list!). <br>
 Simple-Dialer		<br>
 Simple-Music-Player	<br>
 Simple-Notes		<br>
@@ -163,9 +163,9 @@ Source for all simple apps above: https://github.com/SimpleMobileTools
 Additional basic apps:
 
 <a href="https://f-droid.org/en/packages/com.fsck.k9/">K-9 Mail client*</a><br>
-<a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a>(replaces Adobe)<br>
+<a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a> (replaces Adobe)<br>
 <a href="https://f-droid.org/en/packages/com.termux/">Termux (terminal emulator)</a><br>
-<a href="https://telegram.org/">Telegram for Android</a>(Download APK File)<br>
+<a href="https://telegram.org/">Telegram for Android</a> (Download APK File)<br>
 Firefox beta ... yes beta! because stable android version does not allow about:config (cannot enable/disable java etc.) <br>
 
 \*K-9 Mail is a bit buggy over pop3 at least with a Yandex account (it crashes upon opening emails), but notification works well and allows setting a 6-line preview.  
