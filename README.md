@@ -121,7 +121,7 @@ cat ~/tmp/files_rm						      <br>
 cd ~/tmp/; chmod 700 files_rm					      <br>
 ./files_rm							      <br>
 
-More android packages that can be safely removed (such as chrome, email, vending, etc.): 
+Android packages that can be safely removed (such as chrome, email, vending, etc.) : 
 
 adb shell pm list packages | grep -E '.bips|.dreams|.egg|.email|.chrome|.emergency|.managedprovisioning|.bookmarkprovider|.vending|.vpndialogs|.wallpaper|callogbackup|tmobile|gallery3d' > ~/tmp/files_rm_android
 
@@ -139,26 +139,15 @@ adb install ./rkr.simplekeyboard.inputmethod_76.apk  <br>
 adb shell pm uninstall --user 0 com.swiftkey.swiftkeyconfigurator <br>
 adb shell pm uninstall --user 0 com.touchtype.swiftkey	<br>
 
-Possible FOSS replacements for essential apps (best way to install these is either from your linux command line interface): 
+Possible FOSS replacements for essential apps (simply install these either from your linux command line interface): 
 
 adb shell pm install package_name.apk           
 
-or just download or transfer the apk file of the package you want (from Github or F-Droid) to your phone (eg Download folder) and then install by tapping on the file (android's packageinstaller will take care of the rest).
+or just download/transfer the apk file of the package you want (from GitHub or F-Droid) to your phone (eg Download folder) and then install by tapping on the file (android's packageinstaller will take care of the rest).
 
-Simple-Contacts: includes ability to store contacts within app only! ie does not communicate with other apps, eg Telegram. The names of your contacts on Telegram will appear as specified by your contacts (and not as set by yourself in your phone's own contact list!). <br>
-Simple-Dialer		<br>
-Simple-Music-Player	<br>
-Simple-Notes		<br>
-Simple-File-Manager	<br>
-Simple-Gallery		<br>
-Simple-Flashflight	<br>
-Simple-Voice-Recorder	<br>
-Simple-Calculator	<br>
-Simple-SMS-Messenger: app is buggy (can receive sms, but can only send if I receive first: report to developers) <br>
-Simple-Camera: app did not function (likely because Huawei's default camera app was not removed) <br>
-Simple-Calendar: app wasn't working well; developers' page shows that it's still undergoing active maintenance/bug fixes <br>
-
-Source for all simple apps above: https://github.com/SimpleMobileTools 
+Examples: Simple lightweight apps for Dialer, Music-Player, Notes, File-Manager, Gallery, Flashflight, Clock, Voice-Recorder, Calculator, and Contacts can be obtained from https://github.com/SimpleMobileTools.  
+ 
+Contacts app in particular includes the ability to store contacts within the app without communicating with any other app, eg Telegram. The names of your contacts on Telegram will appear as specified by your contacts (and not as set by yourself in your phone's own contact list!). Note: SMS-Messenger, Camera, and Calendar apps from the above source are buggy and still under development.
 
 Additional basic apps:
 
@@ -170,11 +159,7 @@ Firefox beta ... yes beta! because stable android version does not allow about:c
 
 \*K-9 Mail is a bit buggy over pop3 at least with a Yandex account (it crashes upon opening emails), but notification works well and allows setting a 6-line preview.  
 
-Other app choices exist on F-Droid, Github, direct apk download, etc.; check project source code before downloading/installing an app or at least look for minimum safety measures: source code visibility and a large active community > 5 developers!)
-
-Screenshot after clean-up:	<br>
-<a href="https://github.com/thln2ejz/OS_Bash/blob/main/screenshot1.png">Screenshot1</a> <br>
-<a href="https://github.com/thln2ejz/OS_Bash/blob/main/screenshot2.png">Screenshot2</a> 
+Other app choices exist on F-Droid, Github, direct apk download, etc.; check project source code before downloading/installing an app or at least that it is visibile with a large active community behind it (> 5 developers).
 
 With fewer apps and background processes, the battery will now last significantly longer. <br>
 You can turnoff automatic system update through Developer options -> Automatic system updates (turn off).
