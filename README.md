@@ -66,28 +66,20 @@ After experimentation, below is a summary for (safely) removing unwanted apps:
 (2) Connect phone by usb cable and allow file trasfer. <br>
 (3) Settings -> System -> About phone -> tap 7 times on 'Build number' (to enable Developer options). <br>
 (4) Developer options (turn ON) -> USB debugging (turn ON). <br>
-(5) Install android debug bridge (adb) on your computer and run <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> script (assuming Linux CLI); <br>
+(5) Install android debug bridge (adb) on your computer 
 
-#install adb
 sudo apt update <br>
 sudo apt install android-tools-adb <br> 
 
-#check device detection and list all packages (switch -f is for also showing associated apk files)
+(6) Run <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> script (assuming Linux CLI); <br>
+
+#useful check: device detection and list all packages (switch -f is for also showing associated apk files) <br> 
 adb devices <br>
 adb shell pm list packages <br>
 adb shell pm list packages -f  
+adb shell pm list packages | grep google <br>
 
 Packages typically include bloatware from google, facebook, huawei, gameloft, netflix, etc., not to mention a potential keylogger (Microsoft's Swiftkey) which is the default 'keyboard'. This isn't surprising given the following default setting on Windows 10 desktops: "Send Microsoft info about how I write to help us improve typing and writing in the future".   
-
-#Example: list current facebook packages: 
-
-adb shell pm list packages | grep facebook <br>
-	
-#com.facebook.services	<br>
-#com.facebook.katana	<br>
-#com.facebook.orca	<br>
-#com.facebook.system	<br>
-#com.facebook.appmanager <br>
 
 The list of pre-installed packages that can be safely removed is shown in <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> and was obtained after trial & error. The list includes packages from google, huawei, facebook, gameloft, netflix, etc., but avoids system packages which can break your device (ie cause a factory reset). Notice that when removing google packages, 2 exceptions were made for:
 
