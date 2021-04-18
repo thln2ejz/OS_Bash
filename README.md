@@ -41,20 +41,14 @@ Usage: ./scrape_xkcd.sh  [path_local_directory] <br>
 Device name: HUAWEI nova 2 Plus		<br>
 Model: BAC-L21				<br>
 Android version: 8.0.0			<br>
-CPU: Hisilicon Kirin 659		<br>
-Kernel version: 4.4.23+			<br>
 
-Commercial android phones are shipped with tens of (system and 3rd party) pre-installed packages of which many are bloatware.   
-
-For the particular device specified above, one cannot unlock the bootloader and therefore cannot root the device nor install custom ROM. Moreover, no open source custom ROM is compatible with this particular model (including Ubuntu Touch, LineageOS, and others). Even systemless rooting with <a href="https://github.com/topjohnwu/Magisk">Magisk</a> (using stock ROM) is not possible since Huawei's site does not provide a 'boot.img' file that you can flash onto this device. Additionally, Magisk will not work on Huawei devices as these use a different partition setup than most normal Android devices.
-
-The option left is to manually clean up the android system from bloatware and replace these with open source apps.
+Android phones are shipped with tens of (system and 3rd party) pre-installed packages of which many are bloatware. For the particular device specified above, one cannot unlock the bootloader and therefore cannot root the device nor install custom ROM. Moreover, no open source custom ROM is compatible with this particular model (including Ubuntu Touch, LineageOS, and others). Even systemless rooting using <a href="https://github.com/topjohnwu/Magisk">Magisk</a> (using stock ROM) is not possible since Huawei's site does not provide a 'boot.img' file that you can flash onto this device. Additionally, Magisk will not work on Huawei devices as these use a different partition setup than most normal Android devices. The option left is to manually clean up the android system from bloatware and replace these with open source apps.
   
 **Cleanup**: <br>
 After experimentation, below is a summary for safely removing unwanted apps:  
 
 (0) Backup any important files onto your computer. <br>
-(1) Start a factory reset (this will wipe all your device data). Do not enter any account info or link to Gmail/Outlook/etc. <br>
+(1) Start a factory reset (this will wipe all your device data). Do not enter any account info. <br>
 (2) Connect phone by usb cable and allow file trasfer. <br>
 (3) Settings -> System -> About phone -> tap 7 times on 'Build number' (to enable Developer options). <br>
 (4) Developer options (turn ON) -> USB debugging (turn ON). <br>
@@ -85,9 +79,8 @@ adb shell pm uninstall --user 0 com.swiftkey.swiftkeyconfigurator <br>
 adb shell pm uninstall --user 0 com.touchtype.swiftkey	<br>
 
 **Alternative apps**: <br>
-Possible FOSS replacements for essential apps (install these either from your command line interface, or on your phone by downloading/transfering apk files):
+Possible FOSS replacements for essential apps:
 
 * Simple, lightweight apps for Dialer, Music-Player, Notes, File-Manager, Gallery, Flashflight, Clock, Voice-Recorder, Calculator, and Contacts can be obtained from https://github.com/SimpleMobileTools. The Contacts app in particular includes the ability to store contacts without communicating with any other app.
 
-* Other useful apps: <a href="https://f-droid.org/en/packages/com.fsck.k9/">K-9 Mail client</a>, <a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a> (replaces Adobe Reader), <a href="https://f-droid.org/en/packages/com.termux/">Termux (terminal emulator)</a>, Firefox beta (because the stable android version does not allow about:config for customizing configuration). <br>
-Other app choices exist on F-Droid, Github, direct apk download, etc.
+* Other useful apps: <a href="https://f-droid.org/en/packages/com.fsck.k9/">K-9 Mail client</a>, <a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a> (replaces Adobe Reader), <a href="https://f-droid.org/en/packages/com.termux/">Termux (terminal emulator)</a>, Firefox beta (because the stable android version does not allow about:config for customizing configuration). Other app choices exist on F-Droid, Github, direct apk download, etc.
