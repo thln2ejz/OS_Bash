@@ -2,40 +2,19 @@
 
 ## Delete (or fake) metadata
 
-**del_metadata.sh**: bash script for deleting metadata (author name; date timestamps) from a docx (Word) document, which is basically a zip file of xml documents. The script modifies 'document.xml' and 'comments.xml' (if present). Metadata in the output file will appear empty (no author), (no date), including comments in the margin which will have no author and no timestamps. 
+**del_metadata.sh**: bash script for deleting metadata (author name; date timestamps) from a docx (Word) document. Metadata in the output file will appear empty (no author), (no date), including comments in the margin which will have no author and no timestamps. 
 
-Usage: ./del_metadata.sh file1.docx file2.docx file3.docx ... fileN.docx
+**del_metadata.py**: python script that does the same as above, however with an additional (mask) option for faking timestamps of comments using numpy. If the mask option is specified, then timestamps of comments in the margin will be faked through randomization where timestamps are assigned with an incremental component drawn from a uniform distribution.   
 
-**del_metadata.py**: python script that does the same as above, however with an additional (mask) option for faking timestamps of comments using numpy. If the mask option is specified, then timestamps of comments in the margin will be faked through randomization: the first will be the current OS datetime, and remaining comments will be assigned timestamps with an incremental component drawn from a uniform distribution so that consecutive comments appear as if anywhere between 1 to 2 minutes apart.   
+## Random web traffic generator
 
-Usage: ./del_metadata.py [-m] file1.docx file2.docx file3.docx ... fileN.docx
+**traffic_gen.sh**: generates random web traffic for obfuscating real traffic while browsing. 
 
-## Download image files from xkcd site
+## Scrape image files from xkcd site
 
-**scrape_imgs.sh**: download cartoon images from (inaccessible) xkcd directory. 
-Comic cartoons on xkcd.com can be viewed with URL: 
-
-https://xkcd.com/[i]/index.html
-
-where [i] is an integer from 1 to some number (which increases as more cartoons are added).
-
-The cartoon image files can be downloaded one at a time by visiting all consecutive index.html files, however the number of cartoons is in the order of thousands, and the web server directory holding these images has no read permission: 
-
-https://imgs.xkcd.com/comics/      #403 Forbidden
-
-With no permission to access the directory, its image files can still be downloaded with wget if their filenames are known; hence, the filenames would first need to be discovered, ie scraped from index.html files. 
-
-The cartoon images are located at:
-
-https://imgs.xkcd.com/comics/*.jpg	<br>
-https://imgs.xkcd.com/comics/*.png
-
-This script fetches index.html files by looping over [i] and detecting the URL in the html files pointing to the cartoon image (jpg or png file). The loop increments indefinitely until it fails to find an index.html file for some [i]. The images are stored in a specified directory or by default in ~/Downloads/xkcd_imgs/ 
-
-Usage: ./scrape_xkcd.sh  [path_local_directory] <br>
-       If unspecified, default [path_local_directory] is ~/Downloads/xkcd_imgs/
+**scrape_imgs.sh**: download cartoon images from an (inaccessible) xkcd directory.
 	
-## Android Cleanup
+## Android cleanup
 
 **Device specifications**:		<br>
 Device name: HUAWEI nova 2 Plus		<br>
@@ -63,9 +42,7 @@ adb shell pm list packages <br>
 adb shell pm list packages -f  
 adb shell pm list packages | grep google <br>
 
-Packages typically include bloatware from google, facebook, huawei, gameloft, netflix, etc., not to mention a potential keylogger (Microsoft's Swiftkey) which is the default 'keyboard'. This bears resemblance to the default setting on Windows 10 desktops: "Send Microsoft info about how I write to help us improve typing and writing in the future". 
-
-The list of pre-installed packages that can be safely removed is shown in <a href="https://github.com/thln2ejz/Scripting_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> and was obtained after trial & error. The list avoids system packages which can break your device (ie cause factory reset) such as:
+Packages typically include bloatware from google, facebook, huawei, gameloft, netflix, etc., not to mention a potential keylogger (Microsoft's Swiftkey) which is the default 'keyboard'. The list avoids system packages which can cause a factory reset such as:
 
 #com.google.android.gms			<br>
 #com.google.android.packageinstaller	<br>  	
@@ -81,4 +58,4 @@ Possible FOSS replacements for essential apps:
 
 * Simple, lightweight apps for Dialer, Music-Player, Notes, File-Manager, Gallery, Flashflight, Clock, Voice-Recorder, Calculator, and Contacts can be obtained from https://github.com/SimpleMobileTools. The Contacts app in particular includes the ability to store contacts without communicating with any other app.
 
-* Other useful apps: <a href="https://f-droid.org/en/packages/com.fsck.k9/">K-9 Mail client</a>, <a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a> (replaces Adobe Reader), <a href="https://f-droid.org/en/packages/com.termux/">Termux (terminal emulator)</a>, Firefox beta (because the stable android version does not allow about:config for customizing configuration). Other app choices exist on F-Droid, Github, direct apk download, etc.
+* Other useful apps: <a href="https://f-droid.org/en/packages/com.fsck.k9/">K-9 Mail client</a>, <a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a> (replaces Adobe Reader), <a href="https://f-droid.org/en/packages/com.termux/">Termux (terminal emulator)</a>, Firefox. Other app choices exist on F-Droid, Github, direct apk download, etc.
