@@ -1,4 +1,4 @@
-# OS_Bash
+# Projects
 
 ## Delete (or fake) metadata
 
@@ -27,7 +27,7 @@ With no permission to access the directory, its image files can still be downloa
 
 The cartoon images are located at:
 
-https://imgs.xkcd.com/comics/*.jpg	
+https://imgs.xkcd.com/comics/*.jpg	<br>
 https://imgs.xkcd.com/comics/*.png
 
 This script fetches index.html files by looping over [i] and detecting the URL in the html files pointing to the cartoon image (jpg or png file). The loop increments indefinitely until it fails to find an index.html file for some [i]. The images are stored in a specified directory or by default in ~/Downloads/xkcd_imgs/ 
@@ -46,9 +46,9 @@ Kernel version: 4.4.23+			<br>
 
 Commercial android phones are shipped with tens of (system and 3rd party) pre-installed packages of which many are bloatware.   
 
-For the particular device specified above, one cannot unlock the bootloader, and therefore cannot root the device nor install custom ROM. Moreover, no open source custom ROM is compatible with this particular model (including Ubuntu Touch, LineageOS, and others). Even systemless rooting with <a href="https://github.com/topjohnwu/Magisk">Magisk</a> (using stock ROM) is not possible since Huawei's site does not provide a 'boot.img' file that you can flash onto this device. Additionally, Magisk will not work on Huawei devices as these use a different partition setup than most normal Android devices.
+For the particular device specified above, one cannot unlock the bootloader and therefore cannot root the device nor install custom ROM. Moreover, no open source custom ROM is compatible with this particular model (including Ubuntu Touch, LineageOS, and others). Even systemless rooting with <a href="https://github.com/topjohnwu/Magisk">Magisk</a> (using stock ROM) is not possible since Huawei's site does not provide a 'boot.img' file that you can flash onto this device. Additionally, Magisk will not work on Huawei devices as these use a different partition setup than most normal Android devices.
 
-The option left is to manually clean up the android system from bloatware and replace these with open source apps; note: you do **not** need to root your device for the following.  
+The option left is to manually clean up the android system from bloatware and replace these with open source apps.
   
 **Cleanup**: <br>
 After experimentation, below is a summary for safely removing unwanted apps:  
@@ -71,15 +71,12 @@ adb shell pm list packages <br>
 adb shell pm list packages -f  
 adb shell pm list packages | grep google <br>
 
-Packages typically include bloatware from google, facebook, huawei, gameloft, netflix, etc., not to mention a potential keylogger (Microsoft's Swiftkey) which is the default 'keyboard'. This is similar to the default setting on Windows 10 desktops: "Send Microsoft info about how I write to help us improve typing and writing in the future".   
+Packages typically include bloatware from google, facebook, huawei, gameloft, netflix, etc., not to mention a potential keylogger (Microsoft's Swiftkey) which is the default 'keyboard'. This bears resemblance to the default setting on Windows 10 desktops: "Send Microsoft info about how I write to help us improve typing and writing in the future".   
 
-The list of pre-installed packages that can be safely removed is shown in <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> and was obtained after trial & error. The list avoids system packages which can break your device (ie cause a factory reset). Notice that when removing google packages, 2 exceptions were made for:
+The list of pre-installed packages that can be safely removed is shown in <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> and was obtained after trial & error. The list avoids system packages which can break your device (ie cause factory reset) such as:
 
 #com.google.android.gms			<br>
 #com.google.android.packageinstaller	<br>  	
-
-The first one cannot be removed in any case, resulting in: Failure [DELETE_FAILED_DEVICE_POLICY_MANAGER] 		<br>
-The second will (if removed) force your phone upon reboot to enter recovery mode for a factory reset.	<br>  
 
 After running android_cleanup.sh, remove Microsoft swiftkey, but first install an open source alternative (eg <a href="https://f-droid.org/en/packages/rkr.simplekeyboard.inputmethod/">Simple Keyboard</a>):
 
@@ -90,9 +87,7 @@ adb shell pm uninstall --user 0 com.touchtype.swiftkey	<br>
 **Alternative apps**: <br>
 Possible FOSS replacements for essential apps (install these either from your command line interface, or on your phone by downloading/transfering apk files):
 
-* Simple lightweight apps for Dialer, Music-Player, Notes, File-Manager, Gallery, Flashflight, Clock, Voice-Recorder, Calculator, and Contacts can be obtained from https://github.com/SimpleMobileTools.  
- 
-The Contacts app in particular includes the ability to store contacts within the app without communicating with any other app, eg Telegram. The names of your contacts on Telegram will appear as specified by them (and not as set by yourself in your phone's own contact list).
+* Simple, lightweight apps for Dialer, Music-Player, Notes, File-Manager, Gallery, Flashflight, Clock, Voice-Recorder, Calculator, and Contacts can be obtained from https://github.com/SimpleMobileTools. The Contacts app in particular includes the ability to store contacts without communicating with any other app.
 
 * Other useful apps: <a href="https://f-droid.org/en/packages/com.fsck.k9/">K-9 Mail client</a>, <a href="https://f-droid.org/en/packages/com.gsnathan.pdfviewer/">Pdf Viewer Plus</a> (replaces Adobe Reader), <a href="https://f-droid.org/en/packages/com.termux/">Termux (terminal emulator)</a>, Firefox beta (because the stable android version does not allow about:config for customizing configuration). <br>
 Other app choices exist on F-Droid, Github, direct apk download, etc.
