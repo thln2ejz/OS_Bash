@@ -15,25 +15,14 @@ OUTPUT:
 
 DESCRIPTION:
 
-Comic cartoons on xkcd.com can be viewed with URL: 
-
-https://xkcd.com/[i]/index.html
-
+Comic cartoons on xkcd.com can be viewed with URL: https://xkcd.com/[i]/index.html
 where [i] is an integer from 1 to some number (which increases as more cartoons are added).
 
-The cartoon image files can be downloaded one at a time by visiting all consecutive index.html files, 
-however the number of cartoons is in the order of thousands, and the web server directory holding these 
-images has no read permission: 
-
+The web server directory holding the images has no read permission: 
 https://imgs.xkcd.com/comics/      #403 Forbidden
 
 With no permission to access the directory, its image files can still be downloaded with wget if their 
 filenames are known; hence, the filenames would first need to be discovered, ie scraped from index.html files. 
-
-Observation: inspecting a few index.html files, cartoon images appear to be located at:
- 
-https://imgs.xkcd.com/comics/*.jpg
-https://imgs.xkcd.com/comics/*.png
 
 This script fetches index.html files by looping over [i] and detecting the URL in the html files pointing 
 to the cartoon image (jpg or png file). The loop increments indefinitely until it fails to find an index.html 
