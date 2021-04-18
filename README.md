@@ -1,4 +1,4 @@
-# Projects
+# Mini Projects
 
 ## Delete (or fake) metadata
 
