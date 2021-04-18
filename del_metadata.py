@@ -66,8 +66,8 @@ for ind, file_path in enumerate(sys.argv[offset+1:]):
             time_now = datetime.datetime.now()
             seconds = np.random.uniform(low=60, high=120, size=n_dates)  #1-2 minutes apart
             new_times = [time_now + datetime.timedelta(seconds = i) for i in seconds.cumsum()]
-            q = pd.to_datetime(new_times).strftime("%Y-%m-%d %H:%M:%S")  #this is the format used in xml (with dashes)
-            current_dates = re.findall(b'w:date="(.*?)"', data)  #!note: duplicate dates (in original docx) are treated as 1 item
+            q = pd.to_datetime(new_times).strftime("%Y-%m-%d %H:%M:%S") 
+            current_dates = re.findall(b'w:date="(.*?)"', data)
             for i in range(n_dates):
                 t = q[i].replace(' ','T') + 'Z'
                 data = re.sub(current_dates[i], bytes(f'{t}','utf-8'), data)
