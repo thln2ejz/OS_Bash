@@ -45,19 +45,17 @@ Android version: 8.0.0			<br>
 Android phones are shipped with tens of (system and 3rd party) pre-installed packages of which many are bloatware. For the particular device specified above, one cannot unlock the bootloader and therefore cannot root the device nor install custom ROM. Moreover, no open source custom ROM is compatible with this particular model (including Ubuntu Touch, LineageOS, and others). Even systemless rooting using <a href="https://github.com/topjohnwu/Magisk">Magisk</a> (using stock ROM) is not possible since Huawei's site does not provide a 'boot.img' file that you can flash onto this device. Additionally, Magisk will not work on Huawei devices as these use a different partition setup than most normal Android devices. The option left is to manually clean up the android system from bloatware and replace these with open source apps.
   
 **Cleanup**: <br>
-After experimentation, below is a summary for safely removing unwanted apps:  
 
 (0) Backup any important files onto your computer. <br>
 (1) Start a factory reset (this will wipe all your device data). Do not enter any account info. <br>
 (2) Connect phone by usb cable and allow file trasfer. <br>
-(3) Settings -> System -> About phone -> tap 7 times on 'Build number' (to enable Developer options). <br>
-(4) Developer options (turn ON) -> USB debugging (turn ON). <br>
-(5) Install android debug bridge (adb) on your computer:
+(3) Enable Developer options and USB debugging. <br>
+(4) Install android debug bridge (adb) on your computer:
 
 sudo apt update <br>
 sudo apt install android-tools-adb <br> 
 
-(6) Run <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> script <br>
+(5) Run <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> script <br>
 
 #useful check: device detection and listing of packages (switch -f is for also showing associated apk files) <br> 
 adb devices <br>
@@ -65,7 +63,7 @@ adb shell pm list packages <br>
 adb shell pm list packages -f  
 adb shell pm list packages | grep google <br>
 
-Packages typically include bloatware from google, facebook, huawei, gameloft, netflix, etc., not to mention a potential keylogger (Microsoft's Swiftkey) which is the default 'keyboard'. This bears resemblance to the default setting on Windows 10 desktops: "Send Microsoft info about how I write to help us improve typing and writing in the future".   
+Packages typically include bloatware from google, facebook, huawei, gameloft, netflix, etc., not to mention a potential keylogger (Microsoft's Swiftkey) which is the default 'keyboard'. This bears resemblance to the default setting on Windows 10 desktops: "Send Microsoft info about how I write to help us improve typing and writing in the future". 
 
 The list of pre-installed packages that can be safely removed is shown in <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> and was obtained after trial & error. The list avoids system packages which can break your device (ie cause factory reset) such as:
 
