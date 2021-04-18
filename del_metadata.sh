@@ -49,7 +49,7 @@ while (( "$#" )); do
         echo $data > word/comments.xml
     fi
 
-    zip --update "$cwd/$filepath" "word/document.xml"  #second arg _must_ be 'word/document.xml' (ie as is within zip file hierarchy)
+    zip --update "$cwd/$filepath" "word/document.xml" 
     zip --update "$cwd/$filepath" "word/comments.xml"
 
     rm -fr ./word
