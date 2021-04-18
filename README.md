@@ -55,7 +55,7 @@ Android phones are shipped with tens of (system and 3rd party) pre-installed pac
 sudo apt update <br>
 sudo apt install android-tools-adb <br> 
 
-(5) Run <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> script <br>
+(5) Run <a href="https://github.com/thln2ejz/Scripting_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> script <br>
 
 #useful check: device detection and listing of packages (switch -f is for also showing associated apk files) <br> 
 adb devices <br>
@@ -65,7 +65,7 @@ adb shell pm list packages | grep google <br>
 
 Packages typically include bloatware from google, facebook, huawei, gameloft, netflix, etc., not to mention a potential keylogger (Microsoft's Swiftkey) which is the default 'keyboard'. This bears resemblance to the default setting on Windows 10 desktops: "Send Microsoft info about how I write to help us improve typing and writing in the future". 
 
-The list of pre-installed packages that can be safely removed is shown in <a href="https://github.com/thln2ejz/OS_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> and was obtained after trial & error. The list avoids system packages which can break your device (ie cause factory reset) such as:
+The list of pre-installed packages that can be safely removed is shown in <a href="https://github.com/thln2ejz/Scripting_Bash/blob/main/android_cleanup.sh">android_cleanup.sh</a> and was obtained after trial & error. The list avoids system packages which can break your device (ie cause factory reset) such as:
 
 #com.google.android.gms			<br>
 #com.google.android.packageinstaller	<br>  	
