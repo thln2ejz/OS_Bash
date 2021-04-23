@@ -20,15 +20,16 @@ and the user-agent is set apriori. The interval between successive downloads is 
 random (between 30 and 90 seconds). The script can be run in the background during a
 web browsing session and can help obfuscate real traffic. Note that the use of wget 
 in the script can be extended to pursue links within each page recursively to a specified depth.
-! Make sure to kill the script once done with browsing. 
+! Make sure to kill the script once done with browsing (default kill time is 1 hour).
 
 J.A., xrzfyvqk_k1jw@pm.me
 '
 
 user_agent="Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
 max_count=$(cat /usr/share/dict/words | wc -l)
+endtime=$((`date +%s` + 60*60))
 
-while true; do
+while [ $(date +%s) -le $endtime ]; do
     wait_time=$(shuf -i 30-90 -n 1)
     n_words=$(shuf -i 2-6 -n 1)
     unset x
