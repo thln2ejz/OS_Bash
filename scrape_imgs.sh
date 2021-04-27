@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-:'
+: '
 Download cartoon images from (inaccessible) xkcd directory; 
 
 Usage:  ./scrape_xkcd.sh  [path_local_directory] 
