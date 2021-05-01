@@ -29,18 +29,18 @@ user_agent="Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
 max_count=$(cat /usr/share/dict/words | wc -l)
 endtime=$((`date +%s` + 60*60))
 
-while [ $(date +%s) -le $endtime ]; do
+while [ $(date +%s) -le "$endtime" ]; do
     wait_time=$(shuf -i 30-90 -n 1)
     n_words=$(shuf -i 2-6 -n 1)
     unset x
 
     for i in `seq 1 $n_words`; do
         idx=$(shuf -i 1-"$max_count" -n 1)
-        x[$(($i-1))]=$(head -$idx /usr/share/dict/words | tail -1)
+        x[$((i-1))]=$(head -"$idx" /usr/share/dict/words | tail -1)
     done
 
     random_phrase=`echo ${x[*]}`
 
-    wget -P /tmp/random_traffic -e robots=off -np -x --user-agent="$user_agent" "https://duckduckgo.com/?q=$random_phrase&t=ffhp&ia=web"
-    sleep $wait_time
+    wget -P /tmp/random_traffic -e robots=off -np -x --user-agent="$user_agent" "https://duckduckgo.com/$random_phrase"
+    sleep "$wait_time"
 done
