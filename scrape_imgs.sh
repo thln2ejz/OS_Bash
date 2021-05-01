@@ -31,21 +31,21 @@ file for some [i]. The images are stored in a specified directory or by default 
 J.A., xrzfyvqk_k1jw@pm.me
 '
 
-if [ $# = 0 ]; then
+if [ "$#" -eq 0 ]; then
     loc="$HOME/Downloads/xkcd_imgs"    
 else
-    loc=$1
+    loc="$1"
 fi
 
 cwd=$(pwd)
 cd /tmp
 
 flag=0; i=1
-while [ flag=0 ]; do
-    echo site_count: $i
+while [ "$flag" -eq 0 ]; do
+    echo site_count: "$i"
     wget "https://xkcd.com/$i/index.html"  
-    flag=$?
-    wget -P $loc $(grep -o 'Image URL (for hotlinking/embedding): https://imgs.xkcd.com/comics/.*.[jpg|png]' index.html)
+    flag="$?"
+    wget -P "$loc" $(grep -o 'Image URL (for hotlinking/embedding): https://imgs.xkcd.com/comics/.*.[jpg|png]' index.html)
     rm /tmp/index.html
     let i++
 done
