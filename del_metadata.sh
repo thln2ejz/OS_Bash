@@ -30,11 +30,11 @@ if [ "$#" == "0" ]; then
 fi
 
 while (( "$#" )); do
-    filepath=$1
+    filepath="$1"
     cp "$filepath" "${filepath%.docx}.zip" 
     filepath=${filepath%.docx}.zip
 
-    unzip -l $filepath  #list only
+    unzip -l "$filepath"  #list only
     unzip "$filepath" "word/document.xml" -d /tmp 
     unzip "$filepath" "word/comments.xml" -d /tmp 
 
@@ -46,7 +46,7 @@ while (( "$#" )); do
   
     if [ -f word/comments.xml ]; then
         data=$(cat word/comments.xml | sed -e 's/w:author=\"[^"]*\"/w:author=""/g' -e 's/w:date=\"[^"]*\"/w:date=""/g')
-        echo $data > word/comments.xml
+        echo "$data" > word/comments.xml
     fi
 
     zip --update "$cwd/$filepath" "word/document.xml" 
